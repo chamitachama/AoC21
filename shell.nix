@@ -1,10 +1,5 @@
 { pkgs ? import <nixpkgs> {} }:
-let
-  integrationsDBApp = pkgs.poetry2nix.mkPoetryEnv {
-    python = pkgs.python39;
-    projectDir = /home/mcoll/capchase/code/integrations-db/.;
-  };
-in integrationsDBApp.env.overrideAttrs (oldAttrs: {
+pkgs.mkShell({
 	buildInputs = [
 		pkgs.python39
 		pkgs.poetry
